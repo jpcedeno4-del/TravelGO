@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar Sesión - TravelGo</title>
+  <link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+  <div class="login-container">
+    <!-- Imagen lateral -->
+    <div class="login-img">
+      <img src="../img/muralla.jpg" alt="">
+    </div>
+
+    <!-- Formulario -->
+    <div class="login-form">
+      <a href="../index.html" class="volver">←</a>
+      <h2>Iniciar Sesión</h2>
+
+      <div class="social-login">
+        <button class="google-btn">
+          <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt=""> Con Google
+        </button>
+        <button class="gmail-btn">
+          <img src="https://www.svgrepo.com/show/303161/gmail-icon-logo.svg" alt=""> Con Email
+        </button>
+      </div>
+
+      <form id="loginForm">
+        <label for="gmail">Email</label>
+        <input type="email" id="gmail" name="gmail" placeholder="ejemplo@gmail.com" required>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="********" minlength="6" required>
+
+        <button type="submit" class="btn-signin">Sign In</button>
+      </form>
+
+      <a href="./register.html" class="register-link">Crear Cuenta</a>
+
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById("loginForm");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const gmail = document.getElementById("gmail");
+      const pass = document.getElementById("password");
+
+      if (!gmail.checkValidity() || !pass.checkValidity()) {
+        alert("Por favor, completa correctamente todos los campos requeridos.");
+      } else {
+        alert("Inicio de sesión exitoso");
+
+        window.location.href = "../viajesyservicios.html";
+      }
+    });
+
+    document.querySelector(".google-btn").addEventListener("click", () => {
+      window.location.href = "../viajesyservicios.html";
+    });
+
+    document.querySelector(".gmail-btn").addEventListener("click", () => {
+      window.location.href = "../viajesyservicios.html";
+    });
+  </script>
+</body>
+</html>

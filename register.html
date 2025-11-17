@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crear Cuenta - TravelGo</title>
+  <link rel="stylesheet" href="../css/register.css">
+</head>
+<body>
+  <div class="register-container">
+    <!-- Imagen lateral -->
+    <div class="register-img">
+      <img src="../img/tajmahal.jpg" alt="Taj Mahal">
+    </div>
+
+    <!-- Formulario -->
+    <div class="register-form">
+      <a href="../index.html" class="volver">
+        <div class="circle"><span>←</span></div>
+      </a>
+
+      <h2>Crear Cuenta</h2>
+
+      <div class="social-register">
+        <button class="google-btn">
+          <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt=""> Con Google
+        </button>
+        <button class="gmail-btn">
+          <img src="https://www.svgrepo.com/show/303161/gmail-icon-logo.svg" alt=""> Con Email
+        </button>
+      </div>
+
+      <form id="registerForm">
+        <div class="form-group">
+          <input type="text" id="nombre" placeholder="First Name" required>
+          <input type="text" id="apellido" placeholder="Last Name" required>
+        </div>
+
+        <div class="form-group">
+          <input type="email" id="email" placeholder="Email Address" required>
+          <input type="tel" id="telefono" placeholder="Phone Number" required>
+        </div>
+
+        <div class="form-group">
+          <input type="password" id="password" placeholder="Password" minlength="6" required>
+          <input type="password" id="confirmar" placeholder="Confirm Password" minlength="6" required>
+        </div>
+
+        <button type="submit" class="btn-create">Create Account</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById("registerForm");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const pass = document.getElementById("password").value;
+      const confirmar = document.getElementById("confirmar").value;
+
+      if (pass !== confirmar) {
+        alert("Las contraseñas no coinciden.");
+        return;
+      }
+
+      alert("Cuenta creada exitosamente");
+       window.location.href = "./login.html";
+    });
+  </script>
+</body>
+</html>

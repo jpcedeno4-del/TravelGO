@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elige tu destino</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+  <!-- -------------------- MENÚ SUPERIOR -------------------- -->
+  <nav class="menu" id="menu">
+    <div class="logo">TravelGo</div>
+
+    <div class="nav-links">
+      <div id="btnInicio" class="menu-visitados">Inicio</div>
+
+      <a href="./viajesyservicios.html">
+        <div id="btnPaquetes" class="menu-visitados">Nuestros Paquetes</div>
+      </a>
+
+      <a href="./IniciarSesion/login.html">
+        <button class="btn-negro menu-inicio">Iniciar Sesión</button>
+      </a>
+
+      <a href="./IniciarSesion/register.html">
+        <button class="btn-negro menu-inicio">Crear Cuenta</button>
+      </a>
+
+    </div>
+  </nav>
+
+  <!-- -------------------- SECCIÓN INICIO -------------------- -->
+  <section id="inicio" class="seccion activa">
+    <div class="hero">
+      <img src="./img/fondo.jpg" alt="Fondo">
+      <div class="contenido">
+        <h1>ELIGE TU DESTINO</h1>
+        <p>
+         Descubre destinos increíbles, vive experiencias únicas y crea recuerdos que durarán toda la vida. Te ofrecemos itinerarios personalizados, asesoría experta y ofertas exclusivas para que cada aventura sea perfecta. Desde playas paradisíacas hasta ciudades llenas de historia, nosotros nos encargamos de los detalles para que tú solo te concentres en disfrutar.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- -------------------- SECCIÓN MÁS VISITADOS -------------------- -->
+  <section id="visitados" class="seccion">
+    <div class="visitados-container">
+      <h1>Más Visitados</h1>
+      <div class="destinos">
+
+        <div class="tarjeta">
+          <img src="./img/paris.jpg" alt="París">
+          <p>
+            Conocida como “La Ciudad del Amor”, París es famosa por su arquitectura icónica, la Torre Eiffel, el Museo del Louvre y la Catedral de Notre-Dame. Es un destino ideal para los amantes del arte, la moda y la gastronomía. Pasear por sus calles adoquinadas, recorrer sus elegantes bulevares y disfrutar de un café 
+            en Montmartre es vivir una experiencia parisina inolvidable.
+          </p>
+        </div>
+
+        <div class="tarjeta">
+          <img src="./img/bangkok.jpg" alt="Bangkok">
+          <p>
+           La capital tailandesa es un vibrante centro cultural y turístico. Destacan sus templos budistas como Wat Arun y Wat Pho, sus mercados flotantes y su famosa vida nocturna. Bangkok combina modernidad con tradición, ofreciendo experiencias únicas desde paseos en tuk-tuk hasta degustar su deliciosa comida callejera, 
+           llena de aromas y sabores exóticos.
+          </p>
+        </div>
+
+        <div class="tarjeta">
+          <img src="./img/newyork.jpg" alt="Nueva York">
+          <p>
+            Conocida como “La Gran Manzana”, Nueva York es un epicentro de cultura, negocios y entretenimiento. Sus principales atractivos incluyen Times Square, Central Park, la Estatua de la Libertad y Broadway. Es una ciudad que nunca duerme, con infinitas opciones de museos, restaurantes, espectáculos y eventos para todo tipo de viajero.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- -------------------- SCRIPT -------------------- -->
+<script>
+  const inicio     = document.getElementById('inicio');
+  const visitados  = document.getElementById('visitados');
+
+  const menuInicioBtns = document.querySelectorAll('.menu-inicio');      // iniciar sesión / crear cuenta
+  const menuVisitadosBtns = document.querySelectorAll('.menu-visitados'); // inicio / paquetes
+
+  const btnInicio = document.getElementById('btnInicio');
+
+
+  function mostrarInicio() {
+    inicio.classList.add('activa');
+    visitados.classList.remove('activa');
+
+    menuInicioBtns.forEach(btn => btn.style.display = 'inline-block');
+
+    menuVisitadosBtns.forEach(btn => btn.style.display = 'none');
+  }
+
+  function mostrarVisitados() {
+    visitados.classList.add('activa');
+    inicio.classList.remove('activa');
+
+    menuVisitadosBtns.forEach(btn => btn.style.display = 'inline-block');
+
+    menuInicioBtns.forEach(btn => btn.style.display = 'none');
+  }
+
+  btnInicio.addEventListener('click', mostrarInicio);
+
+  if (window.location.search === "?visitados=1") {
+    mostrarVisitados();
+  } else {
+    mostrarInicio();
+  }
+</script>
+
+</body>
+</html>
